@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>New Patient</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <ion-row no-padding>
+      <ion-col size="6" offset="3">
+        <img [src]="image" alt="this is the image"/>
+      </ion-col>
+    </ion-row>
+    <!-- <ion-row no-padding>
+      <ion-col size="6" offset="3">
+        <ion-button fill="outline" expand="block" size="small" (click)="openImagePicker()">Change Picture</ion-button>
+      </ion-col>
+    </ion-row> -->
+  </div>
+  <form [formGroup]="validations_form" (ngSubmit)="onSubmit(validations_form.value)">
+    <ion-item>
+      <ion-label position="floating" color="primary">Identification Type</ion-label>
+      <ion-input type="text" formControlName="identificationType"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" color="primary">Identification Number</ion-label>
+      <ion-input type="text" formControlName="identificationNumber"></ion-input>
+    </ion-item>    
+    <ion-item>
+      <ion-label position="floating" color="primary">First Name</ion-label>
+      <ion-input type="text" formControlName="firstName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" color="primary">Last Name</ion-label>
+      <ion-input type="text" formControlName="lastName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" color="primary">Age</ion-label>
+      <ion-input type="text" formControlName="age"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" color="primary">Diagnostic</ion-label>
+      <ion-input type="text" formControlName="diagnostic"></ion-input>
+    </ion-item>        
+    <ion-button class="submit-btn" expand="block" type="submit" [disabled]="!validations_form.valid">Create</ion-button>
+  </form>
+</ion-content>
